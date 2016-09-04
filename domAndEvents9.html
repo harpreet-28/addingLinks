@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dom and Events 9</title>
+</head>
+
+<body>
+    <button id="add-link" disabled>ADD LINK</button>
+    <button id="chk-url">CHECK URL</button>
+    <br>
+    <a class="link" href="https://www.google.com/">google.com</a>
+    <br>
+    <a class="link" href="https://www.youtube.com/">youtube.com</a>
+    <br>
+    <a class="link" href="http://www.sephora.com">sephora.com</a>
+    <br>
+    <a class="link" href="https://www.yahoo.com/">yahoo.com</a>
+    <br>
+    <a class="link" href="https://www.hotmail.com/">hotmail.com</a>
+    <br>
+    <div id="insert"></div>
+    <script>
+    var _id = function _id(id) {
+        return document['getElementById'](id);
+    }
+    var link = document['querySelectorAll']('.link');
+
+    var checkButton = _id('chk-url');
+    var addButton = _id('add-link');
+    var protek = "http://www.pro-tekconsulting.com/"
+    var insert = _id('insert');
+    checkButton['addEventListener']('click', find, false);
+    addButton['addEventListener']('click', function() {
+
+        insert.innerHTML = protek;
+    })
+
+    function find() {
+        link.forEach(function(elem) {
+            if (elem['href'] == protek) {
+                console.log("yes");
+            } else {
+                addButton['disabled'] = false;
+                console.log("no");
+
+            }
+        })
+    }
+    </script>
+</body>
+
+</html>
